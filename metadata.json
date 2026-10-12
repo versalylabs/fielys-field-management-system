@@ -1,0 +1,10 @@
+{
+  "name": "Fielys - Field Service Management System",
+  "description": "Comprehensive Field Service Management (FSM) platform for dispatching, work orders, technician mobile app, asset tracking, inventory, AMCs, and field billing.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
