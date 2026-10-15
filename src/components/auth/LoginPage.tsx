@@ -15,6 +15,7 @@ import {
   CheckCircle2,
   Truck
 } from 'lucide-react';
+import { FielysLogo } from '../common/FielysLogo';
 
 export const LoginPage: React.FC = () => {
   const { login, theme, toggleTheme } = useFielys();
@@ -46,9 +47,7 @@ export const LoginPage: React.FC = () => {
       {/* Top Bar with Brand & Theme Toggle */}
       <header className="relative z-10 h-16 px-6 lg:px-10 flex items-center justify-between border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-700/60 flex items-center justify-center font-mono font-bold text-cyan-400 text-sm">
-            FL
-          </div>
+          <FielysLogo className="w-8 h-8 shrink-0" />
           <div className="flex items-baseline gap-2">
             <span className="text-lg tracking-wider font-extrabold text-cyan-400">FIELYS</span>
             <span className="text-xs font-mono text-slate-400">FSM OS · v1.0.4</span>

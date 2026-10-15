@@ -23,6 +23,7 @@ import {
   LogOut,
   X
 } from 'lucide-react';
+import { FielysLogo } from '../common/FielysLogo';
 
 interface NavItem {
   id: string;
@@ -135,12 +136,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => 
       >
         {/* Mini App Profile */}
         <div className="p-4 border-b border-slate-800/80 shrink-0 flex items-start justify-between">
-          <div>
-            <div className="text-xs font-semibold text-white tracking-wide">VERSALY FIELYS</div>
-            <div className="text-[11px] text-slate-400 mt-0.5">Kenya & East Africa Corridor</div>
-            <div className="mt-2 text-[10px] font-mono text-cyan-400 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>LIVE DISPATCH ENGINE</span>
+          <div className="flex items-start gap-3">
+            <FielysLogo className="w-8 h-8 shrink-0 mt-0.5" />
+            <div>
+              <div className="text-xs font-bold text-white tracking-wide">VERSALY FIELYS</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Kenya & East Africa Corridor</div>
+              <div className="mt-2 text-[10px] font-mono text-cyan-400 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>LIVE DISPATCH ENGINE</span>
+              </div>
             </div>
           </div>
 

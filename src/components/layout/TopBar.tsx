@@ -18,6 +18,7 @@ import {
   X,
   ArrowRight
 } from 'lucide-react';
+import { FielysLogo } from '../common/FielysLogo';
 
 interface TopBarProps {
   onOpenNewModal: () => void;
@@ -228,10 +229,13 @@ export const TopBar: React.FC<TopBarProps> = ({ onOpenNewModal, onToggleMobileMe
           <a 
             href="#home" 
             onClick={(e) => { e.preventDefault(); setActiveTab('dispatcher-workspace'); }} 
-            className="flex items-baseline gap-1.5 sm:gap-2 font-bold tracking-tight text-white hover:text-cyan-400 transition-colors shrink-0"
+            className="flex items-center gap-2 sm:gap-2.5 font-bold tracking-tight text-white hover:text-cyan-400 transition-colors shrink-0 group"
           >
-            <span className="text-base sm:text-lg tracking-wider font-extrabold text-cyan-400">FIELYS</span>
-            <span className="hidden xs:inline text-[11px] sm:text-xs font-mono text-slate-400 font-normal">FSM OS</span>
+            <FielysLogo className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 transition-transform group-hover:scale-105" />
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-base sm:text-lg tracking-wider font-extrabold text-cyan-400">FIELYS</span>
+              <span className="hidden xs:inline text-[11px] sm:text-xs font-mono text-slate-400 font-normal">FSM OS</span>
+            </div>
           </a>
 
           {/* Quiet breadcrumb separator */}
