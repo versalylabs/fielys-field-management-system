@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFielys } from '../../context/FielysContext';
 import { ShieldCheck, User, MapPin, Clock, Plus, CheckCircle2, FileText, Smartphone, Star, Printer, Download, X, ArrowLeft } from 'lucide-react';
 import { WorkOrder } from '../../types';
+import { FielysLogo } from '../common/FielysLogo';
 
 export const CustomerPortalView: React.FC = () => {
   const { customers, assets, workOrders, createTicket, approvals, reviewApproval, userRole, setUserRole } = useFielys();
@@ -22,25 +23,28 @@ export const CustomerPortalView: React.FC = () => {
     <div className="p-4 sm:p-6 space-y-6 max-w-5xl mx-auto">
       {/* Customer Header */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-bold">
-              CLIENT SELF-SERVICE PORTAL
-            </span>
-            {userRole === 'customer' && (
-              <button
-                onClick={() => setUserRole('dispatcher')}
-                className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 cursor-pointer"
-              >
-                <ArrowLeft className="w-3 h-3" />
-                <span>Exit to Dispatcher Console</span>
-              </button>
-            )}
+        <div className="flex items-start gap-3.5">
+          <FielysLogo className="w-10 h-10 shrink-0 mt-1" />
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-bold">
+                CLIENT SELF-SERVICE PORTAL
+              </span>
+              {userRole === 'customer' && (
+                <button
+                  onClick={() => setUserRole('dispatcher')}
+                  className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 cursor-pointer"
+                >
+                  <ArrowLeft className="w-3 h-3" />
+                  <span>Exit to Dispatcher Console</span>
+                </button>
+              )}
+            </div>
+            <h1 className="text-xl font-bold text-white mt-1">{customer.name}</h1>
+            <p className="text-xs text-slate-400 mt-0.5">
+              Head Office: {customer.headOfficeAddress} · Active AMC: Gold Enterprise
+            </p>
           </div>
-          <h1 className="text-xl font-bold text-white mt-1">{customer.name}</h1>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Head Office: {customer.headOfficeAddress} · Active AMC: Gold Enterprise
-          </p>
         </div>
 
         <button

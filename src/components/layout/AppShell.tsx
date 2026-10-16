@@ -48,10 +48,43 @@ const VALID_TABS = [
   'customer-portal'
 ];
 
+const TAB_TITLES: Record<string, string> = {
+  'dispatcher-workspace': 'Live Ops Center',
+  'schedule-board': 'Gantt Dispatch Board',
+  'work-orders': 'Work Orders',
+  'tickets': 'Service Tickets',
+  'leads-quotes': 'Leads & Quotations',
+  'mobile-field': 'Technician Mobile PWA',
+  'technicians': 'Field Technicians',
+  'routes': 'Route & Fleet Travel Map',
+  'assets': 'Customer Asset Registry',
+  'inventory': 'Inventory & Central Stores',
+  'core-returns': 'Core Returns & RMA',
+  'contracts': 'Service Contracts & AMCs',
+  'invoicing': 'Field Billing & Invoices',
+  'approvals': 'Approvals & Governance',
+  'tools': 'Calibrated Tools & Equipment',
+  'subcontractors': 'Subcontractor Directory',
+  'service-reports': 'Service Sign-Off Reports',
+  'reports': 'Executive Analytics',
+  'settings': 'System Settings & Integrations',
+  'customer-portal': 'Customer Portal'
+};
+
 export const AppShell: React.FC = () => {
   const { activeTab, setActiveTab, userRole, isAuthenticated, setSelectedWorkOrderId } = useFielys();
   const [isNewOrderModalOpen, setIsNewOrderModalOpen] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
+  // Dynamically update the browser tab title to reflect the active page
+  useEffect(() => {
+    if (!isAuthenticated) {
+      document.title = 'Login · Fielys Field Service Management';
+    } else {
+      const pageName = TAB_TITLES[activeTab] || activeTab.replace(/-/g, ' ');
+      document.title = `${pageName} | Fielys - Field Service Management`;
+    }
+  }, [activeTab, isAuthenticated]);
 
   useEffect(() => {
     const handleOpenReport = (e: Event) => {

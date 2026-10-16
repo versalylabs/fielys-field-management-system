@@ -22,6 +22,7 @@ import {
   Phone,
   DollarSign
 } from 'lucide-react';
+import { FielysLogo } from '../common/FielysLogo';
 
 export const TechnicianMobileView: React.FC = () => {
   const {
@@ -134,7 +135,8 @@ export const TechnicianMobileView: React.FC = () => {
         {/* Mobile Top App Bar (56px) */}
         <div className="sticky top-0 z-30 h-14 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-3 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-white text-xs shrink-0">
+            <FielysLogo className="w-7 h-7 shrink-0" />
+            <div className="w-7 h-7 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-white text-xs shrink-0">
               {currentTech.avatar}
             </div>
             <div className="min-w-0">
